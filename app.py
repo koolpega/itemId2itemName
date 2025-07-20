@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 import json
+import os
 
 app = Flask(__name__)
 
@@ -14,9 +15,12 @@ def get_icon():
 
     for item in item_data:
         if item.get("Id") == item_id:
-            return jsonify({"Id": item_id, "Icon": item.get("Icon")})
+            icon_name = item.get("Icon")
+            image_url = f"https://ff.deaddos.online/api/images?iconName={icon_name}&key=FREE"
+            return jsonify({
+                "Id": item_id,
+                "Icon": icon_name,
+                "Image": image_url
+            })
 
     return jsonify({"error": f"No item found with Id {item_id}"}), 404
-
-def handler(request, response):
-    return app(request.environ, response.start_response)
