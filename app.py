@@ -3,7 +3,7 @@ import json
 
 app = Flask(__name__)
 
-with open('itemData.json')) as f:
+with open('itemData.json') as f:
     item_data = json.load(f)
 
 @app.route('/', methods=['GET'])
