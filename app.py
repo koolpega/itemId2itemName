@@ -16,7 +16,7 @@ def get_icon():
     for item in item_data:
         if item.get("Id") == item_id:
             icon_name = item.get("Icon")
-            image_url = f"https://ff.deaddos.online/api/images?iconName={icon_name}&key=FREE"
+            image_url = f"https://freefiremobile-a.akamaihd.net/common/Local/PK/FF_UI_Icon/${icon_name}.png"
             return jsonify({
                 "Id": item_id,
                 "Icon": icon_name,
